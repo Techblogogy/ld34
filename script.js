@@ -23,11 +23,12 @@ var stages = [
 	// Stage 1
 	{
 		click_1: function () {
-			$("#guide_ctr").slideDown(100);
-			next_stage();
+			$("#btn_1").addClass("btn-danger");
 		},
 		click_2: function () {
-			
+			$("#btn_1").removeClass("btn-danger");
+			$("#guide_ctr").slideDown(100);
+			next_stage();
 		},
 
 		txt: "",
