@@ -1,0 +1,19 @@
+#main_ctr {
+	margin-top: 25%;
+	text-align: center;
+}
+
+#guide_ctr {
+	display: none;
+
+	margin-bottom: 15px;
+	font-size: 14pt;
+}
+
+.btn-click {
+	font-size: 24pt !important;
+}
+
+#btn_2 {
+	display: none;
+}
