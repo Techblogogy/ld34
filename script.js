@@ -1,5 +1,7 @@
 window.onload = function () {
 	$("#guide_ctr").hide();
+
+	document.getElementById("bg_audio").volume=0.1;
 }
 
 var interest_points = 0; //Story Interesting
