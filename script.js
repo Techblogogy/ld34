@@ -78,7 +78,7 @@ var stages = [
 		},
 
 		txt: "A long, long time ago, a man stood still for a whole year, looking at the sky. ",
-		btn1: "Skip!",
+		btn1: "Boring",
 		btn2: "Continue"
 	},
 
@@ -89,15 +89,21 @@ var stages = [
 
 			if (interest_points <= -4) {
 				$("#img_view").attr("src","images/image_3.png");
-				next_stage(5);
+				next_stage();
+			} else {
+				set_stage_id(6);
+				$("#img_view").attr("src","images/image_4.png");
 			}
 		},
 		click_2: function () {
 			interest_points++; 
+
+			set_stage_id(6);
+			$("#img_view").attr("src","images/image_4.png");
 		},
 
 		txt: "All day and night. People went past, never bothering to notice him.",
-		btn1: "Skip!",
+		btn1: "Boring",
 		btn2: "Continue"
 	},
 
@@ -110,9 +116,121 @@ var stages = [
 			location.reload();
 		},
 
-		txt: "And then he starved to dead. THE END",
+		txt: "And then he starved to dead. Moral of the story: \"Don't spend your life waiting, spend it working\" THE END",
 		btn1: "RESTART",
 		btn2: "RESTART"
+	},
+
+	// Stage 6 
+	{
+		click_1: function () {
+			interest_points--; 
+			next_stage();
+			$("#img_view").attr("src","images/image_1.png");
+		},
+		click_2: function () {
+			interest_points++; 
+
+			if (interest_points >= 0) {
+				$("#img_view").attr("src","images/image_6.png");
+				set_stage_id(8);
+			} else {
+				next_stage();
+				$("#img_view").attr("src","images/image_1.png");
+			}
+		},
+
+		txt: "But, one special day a girl came up to him",
+		btn1: "Ignore Her",
+		btn2: "Greet Her"
+	},
+
+	// Stage 7 (Negative)
+	{
+		click_1: function () {
+			interest_points--; 
+
+			if (interest_points < 0) {
+				$("#img_view").attr("src","images/image_3.png");
+				set_stage_id(5);
+			} else {
+				$("#img_view").attr("src","images/image_7.png");
+				set_stage_id(9);
+			}
+		},
+		click_2: function () {
+			interest_points++; 
+
+			if (interest_points < 0) {
+				$("#img_view").attr("src","images/image_3.png");
+				set_stage_id(5);
+			} else {
+				$("#img_view").attr("src","images/image_7.png");
+				set_stage_id(9);
+			}
+		},
+
+		txt: "Sadly she just passed by like everyone else",
+		btn1: "Boring",
+		btn2: "Continue"
+	},
+
+	// Stage 8 (Positive)
+	{
+		click_1: function () {
+			interest_points--; 
+
+			if (interest_points < 0) {
+				$("#img_view").attr("src","images/image_3.png");
+				set_stage_id(5);
+			} else {
+				$("#img_view").attr("src","images/image_8.png");
+				set_stage_id(10);
+			}
+		},
+		click_2: function () {
+			interest_points++; 
+
+			if (interest_points < 0) {
+				$("#img_view").attr("src","images/image_3.png");
+				set_stage_id(5);
+			} else {
+				$("#img_view").attr("src","images/image_8.png");
+				set_stage_id(10);
+			}
+		},
+
+		txt: "She greeted him back, and they chatted all day and night long",
+		btn1: "Boring",
+		btn2: "Continue"
+	},
+
+	// Stage 9 (NEGATIVE)
+	{
+		click_1: function () {
+			location.reload();
+		},
+		click_2: function () {
+			location.reload();
+		},
+
+		txt: "The Policeman came and arrested this strange man. Moral Of The Story: \"No matter what you do, you always loose\" THE END",
+		btn1: "RESTART",
+		btn2: "RESTART"
+	},
+
+	// Stage 10 (Positive)
+	{
+		click_1: function () {
+			location.reload();
+		},
+		click_2: function () {
+			location.reload();
+		},
+
+		txt: "She gave him something hobody could, something to live for. The got married and lived happily ever after. Moral of this story: \"Don't be alone\"",
+		btn1: "RESET",
+		btn2: "RESET"
 	}
 
 ];
