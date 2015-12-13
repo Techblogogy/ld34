@@ -89,7 +89,7 @@ var stages = [
 
 			if (interest_points <= -4) {
 				$("#img_view").attr("src","images/image_3.png");
-				set_stage(5);
+				next_stage(5);
 			}
 		},
 		click_2: function () {
@@ -122,7 +122,7 @@ function next_stage() {
 	set_stage();
 }
 
-function set_stage (id) {
+function set_stage_id (id) {
 	stage = id;
 	set_stage();
 }
