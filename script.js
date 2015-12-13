@@ -2,6 +2,8 @@ window.onload = function () {
 	$("#guide_ctr").hide();
 }
 
+var interest_points = 0; //Story Interesting
+
 var stage = 0; // Stage Count
 var stages = [ 
 	// Stage 0
@@ -39,15 +41,54 @@ var stages = [
 	// Stage 2
 	{
 		click_1: function () {
+			if ($("#btn_1").text() == "YES"){
+				next_stage();
+				$("#img_ctr").slideDown(100);
+			}
+			else 
+				$("#btn_1").text("YES");
 
 		},
 		click_2: function () {
-			
+			next_stage();
+			$("#img_ctr").slideDown(100);
 		},
 
-		txt: "Read me",
-		btn1: "Don't Click Me",
-		btn2: "Click Me"
+		txt: "Do you want to hear a story?",
+		btn1: "NO",
+		btn2: "YES"
+	},
+
+	// Stage 3
+	{
+		click_1: function () {
+			interest_points--; 
+			next_stage();
+
+			$("#img_view").attr("src","images/image_2.png");
+		},
+		click_2: function () {
+			interest_points++; 
+			next_stage();
+
+			$("#img_view").attr("src","images/image_2.png");
+		},
+
+		txt: "A long, long time ago, a man stood still for a whole year, looking at the sky. ",
+		btn1: "Skip!",
+		btn2: "Continue"
+	},
+
+	// Stage 4
+	{
+		click_1: function () {
+		},
+		click_2: function () {
+		},
+
+		txt: "All day and night. People went past, never bothering to notice him.",
+		btn1: "Skip!",
+		btn2: "Continue"
 	}
 
 ];
