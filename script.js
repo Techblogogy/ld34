@@ -25,6 +25,7 @@ var stages = [
 	// Stage 1
 	{
 		click_1: function () {
+			interest_points--; 
 			$("#btn_1").addClass("btn-danger");
 		},
 		click_2: function () {
@@ -42,6 +43,7 @@ var stages = [
 	{
 		click_1: function () {
 			if ($("#btn_1").text() == "YES"){
+				interest_points--; 
 				next_stage();
 				$("#img_ctr").slideDown(100);
 			}
@@ -50,6 +52,7 @@ var stages = [
 
 		},
 		click_2: function () {
+			interest_points++; 
 			next_stage();
 			$("#img_ctr").slideDown(100);
 		},
@@ -82,13 +85,34 @@ var stages = [
 	// Stage 4
 	{
 		click_1: function () {
+			interest_points--; 
+
+			if (interest_points <= -4) {
+				$("#img_view").attr("src","images/image_3.png");
+				set_stage(5);
+			}
 		},
 		click_2: function () {
+			interest_points++; 
 		},
 
 		txt: "All day and night. People went past, never bothering to notice him.",
 		btn1: "Skip!",
 		btn2: "Continue"
+	},
+
+	// Stage 5 (GAME OVER)
+	{
+		click_1: function () {
+			location.reload();
+		},
+		click_2: function () {
+			location.reload();
+		},
+
+		txt: "And then he starved to dead. THE END",
+		btn1: "RESTART",
+		btn2: "RESTART"
 	}
 
 ];
@@ -108,6 +132,8 @@ function set_stage () {
 
 	$("#btn_1").text(stages[stage].btn1);
 	$("#btn_2").text(stages[stage].btn2);
+
+	console.log(interest_points);
 }
 
 $("#btn_1").click(function () {
